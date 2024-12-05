@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="flex justify-between w-11/12 mx-auto items-center py-3 flex-wrap">
                 {/* Logo */}
                 <div>
-                    <a class="btn btn-ghost text-xl text-green-400">Crowd<span className="text-orange-400 text-xl">Cube</span></a>
+                    <a className="btn btn-ghost text-xl text-green-400">Crowd<span className="text-orange-400 text-xl">Cube</span></a>
                 </div>
 
                 {/* Navigation Links */}
@@ -25,7 +25,7 @@ const Navbar = () => {
                     </NavLink>
                     <span>|</span>
                     <NavLink
-                        to="/all-campaigns"
+                        to="/campaigns"
                         className={({ isActive }) =>
                             isActive ? "text-blue-500 font-bold" : "text-gray-700"
                         }
@@ -34,26 +34,31 @@ const Navbar = () => {
                     </NavLink>
                     <span>|</span>
                     <NavLink
-                        to="/add-new-campaign"
+                        to="/addCampaign"
                         className={({ isActive }) =>
                             isActive ? "text-blue-500 font-bold" : "text-gray-700"
                         }
                     >
                         Add New Campaign
                     </NavLink>
-                    {user && (
-                        <>
-                            <span>|</span>
-                            <NavLink
-                                to="/my-campaign"
-                                className={({ isActive }) =>
-                                    isActive ? "text-blue-500 font-bold" : "text-gray-700"
-                                }
-                            >
-                                My Campaign
-                            </NavLink>
-                        </>
-                    )}
+                    <span>|</span>
+                    <NavLink
+                        to="/myCampaign"
+                        className={({ isActive }) =>
+                            isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                        }
+                    >
+                        My Campaign
+                    </NavLink>
+                    <span>|</span>
+                    <NavLink
+                        to="/myDonations"
+                        className={({ isActive }) =>
+                            isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                        }
+                    >
+                        My Donations
+                    </NavLink>
                 </div>
 
                 {/* User Profile & Logout */}
@@ -118,7 +123,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/all-campaigns"
+                                to="/campaigns"
                                 className={({ isActive }) =>
                                     isActive ? "text-blue-500 font-bold" : "text-gray-700"
                                 }
@@ -128,7 +133,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/add-new-campaign"
+                                to="/addCampaign"
                                 className={({ isActive }) =>
                                     isActive ? "text-blue-500 font-bold" : "text-gray-700"
                                 }
@@ -136,18 +141,26 @@ const Navbar = () => {
                                 Add New Campaign
                             </NavLink>
                         </li>
-                        {user && (
-                            <li>
-                                <NavLink
-                                    to="/my-campaign"
-                                    className={({ isActive }) =>
-                                        isActive ? "text-blue-500 font-bold" : "text-gray-700"
-                                    }
-                                >
-                                    My Campaign
-                                </NavLink>
-                            </li>
-                        )}
+                        <li>
+                            <NavLink
+                                to="/myCampaign"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                                }
+                            >
+                                My Campaign
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/myDonations"
+                                className={({ isActive }) =>
+                                    isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                                }
+                            >
+                                My Donations
+                            </NavLink>
+                        </li>
                         {user ? (
                             <li>
                                 <button onClick={logOut} className="btn btn-sm btn-outline text-gray-700">

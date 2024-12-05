@@ -3,7 +3,6 @@ import Navbar from '../Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import Footer from '../Footer/Footer';
-import Home from '../Home/Home';
 
 const Root = () => {
     return (
@@ -22,8 +21,7 @@ const Root = () => {
             <nav className="py-6">
                 <Navbar></Navbar>
             </nav>
-            {/* <Outlet></Outlet> */}
-            <Home></Home>
+            <Outlet></Outlet>
             <Footer></Footer>
         </div>
     );

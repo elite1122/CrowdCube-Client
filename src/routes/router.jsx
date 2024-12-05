@@ -3,6 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from '../Components/Home/Home';
 import Root from '../Components/Root/Root';
 import ErrorPage from '../Components/ErrorPage/ErrorPage';
+import Campaigns from '../Components/Campaigns/Campaigns';
+import AddCampaign from '../Components/AddCampaign/AddCampaign';
+import MyCampaign from '../Components/MyCampaign/MyCampaign';
+import MyDonations from '../Components/MyDonations/MyDonations';
+import Login from '../Pages/Login/Login';
+import Register from '../Pages/Register/Register';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
 
@@ -15,10 +22,22 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
             },
-            // {
-            //     path: "/donation-campaigns",
-            //     element: <DonationCampaigns></DonationCampaigns>,
-            // },
+            {
+                path: "/campaigns",
+                element: <Campaigns></Campaigns>,
+            },
+            {
+                path: "/addCampaign",
+                element: <PrivateRoute><AddCampaign></AddCampaign></PrivateRoute>,
+            },
+            {
+                path: "/myCampaign",
+                element: <PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>,
+            },
+            {
+                path: "/myDonations",
+                element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
+            },
             // {
             //     path: "/donation-campaigns/:id",
             //     element: (
@@ -48,22 +67,18 @@ const router = createBrowserRouter([
             //         </PrivateRoute>
             //     ),
             // },
-            // {
-            //     path: "/login",
-            //     element: <Login></Login>,
-            // },
-            // {
-            //     path: "/register",
-            //     element: <Register></Register>,
-            // },
+            {
+                path: "/login",
+                element: <Login></Login>,
+            },
+            {
+                path: "/register",
+                element: <Register></Register>,
+            },
             // {
             //     path: "/forgot-password",
             //     element: <ForgotPassword></ForgotPassword>,
             // },
-            {
-                path: "*",
-                element: <ErrorPage></ErrorPage>,
-            }
         ]
     }
 ])
