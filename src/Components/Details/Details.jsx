@@ -36,6 +36,12 @@ const Details = () => {
 
         // Collect donation data
         const donationData = {
+            campaignTitle: campaign?.campaignTitle,
+            campaignType: campaign?.campaignType,
+            description: campaign?.description,
+            minimumDonationAmount: campaign?.minimumDonationAmount,
+            deadline: campaign?.deadline,
+            photo: campaign?.photo,
             userName: user.displayName,
             userEmail: user.email,
         };
