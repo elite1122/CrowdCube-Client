@@ -19,13 +19,13 @@ const RunningCampaigns = () => {
         <div className="container mx-auto py-10 w-11/12">
             <h1 className="text-4xl font-bold text-center mb-6">Running Campaigns</h1>
             {campaigns.length === 0 ? (
-                <p className="text-center text-gray-600">No running campaigns found!</p>
+                <p className="text-center">No running campaigns found!</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {campaigns.map((campaign) => (
                         <div
                             key={campaign._id}
-                            className="card bg-base-100 shadow-xl"
+                            className="card shadow-xl pt-5"
                             data-tooltip-id={`tooltip-${campaign._id}`} // Unique ID for each tooltip
                             data-tooltip-content={`Campaign created by ${campaign.name}. Min Donation: ${campaign.minimumDonationAmount}TK`}
                         >
@@ -38,7 +38,7 @@ const RunningCampaigns = () => {
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">{campaign.campaignTitle}</h2>
-                                <p className="text-sm text-gray-600">{campaign.description.slice(0, 100)}...</p>
+                                <p className="text-sm">{campaign.description.slice(0, 100)}...</p>
                                 <div className="flex justify-between items-center mt-4">
                                     <p className="text-primary font-semibold">
                                         Min Donation: {campaign.minimumDonationAmount}TK

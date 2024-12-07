@@ -13,7 +13,7 @@ const Banner = () => {
     }, [totalSlides]);
 
     return (
-        <div className="flex justify-center items-center p-5 bg-gray-100 w-full mx-auto rounded-2xl">
+        <div className="flex justify-center items-center p-5 w-full mx-auto rounded-2xl">
             <div className="carousel w-full sm:w-[500px] md:w-[700px] lg:w-[800px] h-[200px] sm:h-[300px] md:h-[400px] relative">
                 {/* Slide 1 */}
                 <div
