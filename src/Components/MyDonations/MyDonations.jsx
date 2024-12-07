@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
+import Loading from '../../Pages/Loading/Loading';
 
 const MyDonations = () => {
     const { user } = useContext(AuthContext);
@@ -23,8 +24,8 @@ const MyDonations = () => {
         }
     }, [user]);
 
-    if (loading) {
-        return <p className="text-center py-10">Loading your donations...</p>;
+    if(loading){
+        return <Loading></Loading>;
     }
 
     if (donations.length === 0) {

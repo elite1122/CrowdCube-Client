@@ -1,11 +1,30 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Campaigns = () => {
-    const campaigns = useLoaderData();  // Load campaigns data from loader
+    const campaignsData = useLoaderData(); // Load campaigns data from loader
+    const [campaigns, setCampaigns] = useState(campaignsData); // State to manage campaigns
+    const navigate = useNavigate();
+
+    // Function to sort campaigns in ascending order
+    const handleSort = () => {
+        const sortedCampaigns = [...campaigns].sort(
+            (a, b) => a.minimumDonationAmount - b.minimumDonationAmount
+        );
+        setCampaigns(sortedCampaigns);
+    };
 
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-4xl font-bold text-center mb-6">All Campaigns</h1>
+            <div className="flex justify-between items-center mb-4">
+                <button
+                    className="btn btn-primary"
+                    onClick={handleSort}
+                >
+                    Sort (Ascending)
+                </button>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-300">
                     <thead>
@@ -19,7 +38,7 @@ const Campaigns = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {campaigns.map((campaign, index) => (
+                        {campaigns.map((campaign) => (
                             <tr key={campaign._id} className="text-center hover:bg-gray-100">
                                 <td className="border border-gray-300 p-2">{campaign.campaignTitle}</td>
                                 <td className="border border-gray-300 p-2">{campaign.campaignType}</td>
@@ -29,7 +48,7 @@ const Campaigns = () => {
                                 <td className="border border-gray-300 p-2">
                                     <button
                                         className="btn btn-primary"
-                                        onClick={() => alert(`See more details for: ${campaign.campaignTitle}`)}
+                                        onClick={() => navigate(`/campaign/${campaign._id}`)}
                                     >
                                         See More
                                     </button>

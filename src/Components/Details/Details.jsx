@@ -34,6 +34,19 @@ const Details = () => {
             return;
         }
 
+        const currentDate = new Date();
+        const deadlineDate = new Date(campaign.deadline);
+
+        if (currentDate > deadlineDate) {
+            Swal.fire({
+                title: 'Campaign Closed',
+                text: 'The deadline for this campaign has passed. Donations are no longer accepted.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
+
         // Collect donation data
         const donationData = {
             campaignTitle: campaign?.campaignTitle,
@@ -75,6 +88,7 @@ const Details = () => {
                 });
             });
     };
+
 
     if (!campaign) {
         return <p className="text-center py-10">Loading campaign details...</p>;
