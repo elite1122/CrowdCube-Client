@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import Loading from '../../Pages/Loading/Loading';
 
 const MyCampaign = () => {
-    const { user } = useContext(AuthContext);
+    const { user,loading } = useContext(AuthContext);
     const [myCampaigns, setMyCampaigns] = useState([]);
 
     useEffect(() => {
@@ -13,6 +14,10 @@ const MyCampaign = () => {
             .then((data) => setMyCampaigns(data))
             .catch((error) => console.error('Error fetching user campaigns:', error));
     }, [user.email]);
+
+    if(loading){
+        return <Loading></Loading>;
+    }
 
     const handleDelete = (id) => {
         Swal.fire({
