@@ -16,7 +16,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navigation Links */}
-                <div className="hidden md:flex space-x-4 font-semibold">
+                <div className="hidden lg:flex space-x-4 font-semibold">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -86,7 +86,7 @@ const Navbar = () => {
                             </div>
                             <button
                                 onClick={logOut}
-                                className="hidden md:flex btn btn-outline text-gray-700"
+                                className="hidden lg:flex btn btn-outline text-gray-700"
                             >
                                 Logout
                             </button>
@@ -95,7 +95,7 @@ const Navbar = () => {
                         <NavLink
                             to="/login"
                             className={({ isActive }) =>
-                                isActive ? "hidden md:flex btn btn-primary text-white" : "hidden md:flex btn btn-outline text-gray-700"
+                                isActive ? "hidden lg:flex btn btn-primary text-white" : "hidden lg:flex btn btn-outline text-gray-700"
                             }
                         >
                             Login
@@ -104,7 +104,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu */}
-                <div className="md:hidden dropdown dropdown-end">
+                <div className="lg:hidden dropdown dropdown-end">
                     <button tabIndex="0" className="btn btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
