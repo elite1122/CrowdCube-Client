@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Tooltip } from 'react-tooltip';
+
 
 const RunningCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
@@ -21,7 +23,12 @@ const RunningCampaigns = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {campaigns.map((campaign) => (
-                        <div key={campaign._id} className="card bg-base-100 shadow-xl">
+                        <div
+                            key={campaign._id}
+                            className="card bg-base-100 shadow-xl"
+                            data-tooltip-id={`tooltip-${campaign._id}`} // Unique ID for each tooltip
+                            data-tooltip-content={`Campaign created by ${campaign.name}. Min Donation: ${campaign.minimumDonationAmount}TK`}
+                        >
                             <figure className='h-64 px-6'>
                                 <img
                                     src={campaign.photo}
@@ -34,7 +41,7 @@ const RunningCampaigns = () => {
                                 <p className="text-sm text-gray-600">{campaign.description.slice(0, 100)}...</p>
                                 <div className="flex justify-between items-center mt-4">
                                     <p className="text-primary font-semibold">
-                                        Min Donation: ${campaign.minimumDonationAmount}
+                                        Min Donation: {campaign.minimumDonationAmount}TK
                                     </p>
                                     <p className="text-secondary">
                                         Deadline: {new Date(campaign.deadline).toLocaleDateString()}
@@ -47,6 +54,7 @@ const RunningCampaigns = () => {
                                     See More
                                 </button>
                             </div>
+                            <Tooltip id={`tooltip-${campaign._id}`} place="top" effect="solid" />
                         </div>
                     ))}
                 </div>
