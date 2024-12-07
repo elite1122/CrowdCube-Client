@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import RunningCampaigns from '../RunningCampaigns/RunningCampaigns';
 import ContributorStories from '../ContributorStories/ContributorStories';
+import FrequentlyAskedQuestion from '../FrequentlyAskedQuestion/FrequentlyAskedQuestion';
 
 const Home = () => {
     return (
@@ -16,6 +17,9 @@ const Home = () => {
             </section>
             <section>
                 <ContributorStories></ContributorStories>
+            </section>
+            <section>
+                <FrequentlyAskedQuestion></FrequentlyAskedQuestion>
             </section>
         </div>
     );
