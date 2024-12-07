@@ -10,7 +10,9 @@ const Navbar = () => {
             <div className="flex justify-between w-11/12 mx-auto items-center py-3 flex-wrap">
                 {/* Logo */}
                 <div>
-                    <a className="btn btn-ghost text-xl text-green-400">Crowd<span className="text-orange-400 text-xl">Cube</span></a>
+                    <a className="btn btn-ghost text-xl text-green-400">
+                        Crowd<span className="text-orange-400 text-xl">Cube</span>
+                    </a>
                 </div>
 
                 {/* Navigation Links */}
@@ -64,15 +66,23 @@ const Navbar = () => {
                 {/* User Profile & Logout */}
                 <div className="flex items-center space-x-4">
                     {user?.photoURL ? (
-                        <div className="flex items-center gap-2">
-                            <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
+                        <div className="relative group flex items-center gap-2">
+                            <div
+                                tabIndex="0"
+                                role="button"
+                                className="btn btn-ghost btn-circle avatar group"
+                            >
                                 <div className="w-10 rounded-full">
                                     <img
                                         referrerPolicy="no-referrer"
                                         alt="User Avatar"
-                                        src={user?.photoURL && user.photoURL}
+                                        src={user.photoURL}
                                     />
                                 </div>
+                                {/* Hover Display */}
+                                <span className="absolute hidden group-hover:flex items-center justify-center bg-gray-800 text-white text-sm px-4 py-1 rounded-md -bottom-10 left-1/2 transform -translate-x-1/2 w-max">
+                                    {user.displayName}
+                                </span>
                             </div>
                             <button
                                 onClick={logOut}
@@ -93,18 +103,21 @@ const Navbar = () => {
                     )}
                 </div>
 
+                {/* Mobile Menu */}
                 <div className="md:hidden dropdown dropdown-end">
                     <button tabIndex="0" className="btn btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            className="inline-block h-5 w-5 stroke-current">
+                            className="inline-block h-5 w-5 stroke-current"
+                        >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
+                                d="M4 6h16M4 12h16M4 18h16"
+                            ></path>
                         </svg>
                     </button>
                     <ul
