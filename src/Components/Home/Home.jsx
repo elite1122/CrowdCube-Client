@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import RunningCampaigns from '../RunningCampaigns/RunningCampaigns';
+import ContributorStories from '../ContributorStories/ContributorStories';
 
 const Home = () => {
     return (
@@ -12,6 +13,9 @@ const Home = () => {
             {/* Running Campains */}
             <section>
                 <RunningCampaigns></RunningCampaigns>
+            </section>
+            <section>
+                <ContributorStories></ContributorStories>
             </section>
         </div>
     );
