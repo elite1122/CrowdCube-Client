@@ -42,7 +42,7 @@ const RunningCampaigns = () => {
                                 </div>
                                 <button
                                     className="btn btn-primary w-full mt-4"
-                                    onClick={() => navigate(`/campaigns/${campaign._id}`)}
+                                    onClick={() => navigate(`/campaign/${campaign._id}`)} // Correct path
                                 >
                                     See More
                                 </button>

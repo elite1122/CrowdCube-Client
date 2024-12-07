@@ -11,6 +11,7 @@ import Login from '../Pages/Login/Login';
 import Register from '../Pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import UpdateCampaign from '../Components/UpdateCampaign/UpdateCampaign';
+import Details from '../Components/Details/Details';
 
 const router = createBrowserRouter([
 
@@ -45,35 +46,7 @@ const router = createBrowserRouter([
                 path: "/myDonations",
                 element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
             },
-            // {
-            //     path: "/donation-campaigns/:id",
-            //     element: (
-            //         <PrivateRoute>
-            //             <Details></Details>
-            //         </PrivateRoute>
-            //     ),
-            //     loader: async ({ params }) => {
-            //         const response = await fetch("/campaignsInfo.json");
-            //         const data = await response.json();
-            //         return data.find((campaign) => campaign.id === parseInt(params.id));
-            //     },
-            // },
-            // {
-            //     path: "/how-to-help",
-            //     element: <HowToHelp></HowToHelp>,
-            // },
-            // {
-            //     path: "/dashboard",
-            //     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-            // },
-            // {
-            //     path: "/update-profile",
-            //     element: (
-            //         <PrivateRoute>
-            //             <UpdateProfile></UpdateProfile>
-            //         </PrivateRoute>
-            //     ),
-            // },
+            
             {
                 path: "/login",
                 element: <Login></Login>,
@@ -82,10 +55,10 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>,
             },
-            // {
-            //     path: "/forgot-password",
-            //     element: <ForgotPassword></ForgotPassword>,
-            // },
+            {
+                path: "/campaign/:id",
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
+            },
         ]
     }
 ])
