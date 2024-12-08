@@ -65,7 +65,7 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(() => {
-                toast.success("Login Successful");
+                toast.success("Registration Successful");
                 navigate("/");
             })
             .catch((error) => {
