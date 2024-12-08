@@ -37,7 +37,7 @@ const Details = () => {
         const currentDate = new Date();
         const deadlineDate = new Date(campaign.deadline);
 
-        if (currentDate > deadlineDate) {
+        if (currentDate >= deadlineDate) {
             Swal.fire({
                 title: 'Campaign Closed',
                 text: 'The deadline for this campaign has passed. Donations are no longer accepted.',
@@ -106,18 +106,18 @@ const Details = () => {
                     />
                 </div>
                 <div className="w-full space-y-4">
-                    <p className="text-gray-700 text-lg">
+                    <p className="text-gray-700 text-lg dark:text-gray-400">
                         <strong>Description: </strong>
                         {campaign.description}
                     </p>
-                    <p className="text-gray-700 text-lg">
+                    <p className="text-gray-700 text-lg dark:text-gray-400">
                         <strong>Type: </strong>
                         {campaign.campaignType}
                     </p>
-                    <p className="text-gray-700 text-lg">
+                    <p className="text-gray-700 text-lg dark:text-gray-400">
                         <strong>Minimum Donation: </strong>{campaign.minimumDonationAmount}TK
                     </p>
-                    <p className="text-gray-700 text-lg">
+                    <p className="text-gray-700 text-lg dark:text-gray-400">
                         <strong>Deadline: </strong>
                         {new Date(campaign.deadline).toLocaleDateString()}
                     </p>
