@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-    const { createNewUser, setUser, updateUserProfile, setRefetch, signInWithGoogle } = useContext(AuthContext);
+    const { createNewUser, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +27,7 @@ const Register = () => {
         if (!hasValidLength) {
             return "Password must be at least 6 characters long.";
         }
-        return ""; // No errors
+        return "";
     };
 
     const handleSubmit = (e) => {
@@ -39,7 +39,6 @@ const Register = () => {
         const email = form.get("email");
         const photo = form.get("photo");
         const password = form.get("password");
-        // console.log({email,password,photo,name});
 
         // Validate password
         const passwordError = validatePassword(password);
@@ -52,42 +51,32 @@ const Register = () => {
         setError("");
 
         // Create new user
-        createNewUser(email, password)
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
+        createNewUser(email, password, name, photo)
+            .then(() => {
                 e.target.reset();
-                updateUserProfile({ displayName: name, photoURL: photo })
-                    .then(() => {
-                        setRefetch(Date.now());
-                        toast.success("Registration Successful");
-                        navigate("/");
-                    })
-                    .catch((err) => {
-                        toast.error(err.code);
-                    });
+                toast.success("Registration Successful");
+                navigate("/");
             })
             .catch((err) => {
-                toast.error(err.code);
+                toast.error(err.message);
             });
     };
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-            .then(result => {
+            .then(() => {
                 toast.success("Registration Successful");
                 navigate("/");
             })
             .catch((error) => {
-                toast.error(error.code);
+                toast.error(error.message);
             });
-    }
+    };
 
     const handlePasswordVisibilityToggle = (e) => {
         e.preventDefault(); // Prevent form submission
         setShowPassword(!showPassword);
     };
-    
 
     return (
         <div className="min-h-screen flex justify-center items-center">
@@ -138,17 +127,17 @@ const Register = () => {
                             <span className="">Password</span>
                         </label>
                         <input
-                            type={showPassword ? 'text' : 'password'}
+                            type={showPassword ? "text" : "password"}
                             placeholder="password"
                             name="password"
                             className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
-                            required />
+                            required
+                        />
                         <button
                             onClick={handlePasswordVisibilityToggle}
-                            className="btn btn-xs absolute right-2 top-12 bg-white text-black dark:bg-gray-800 dark:text-white">
-                            {
-                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-                            }
+                            className="btn btn-xs absolute right-2 top-12 bg-white text-black dark:bg-gray-800 dark:text-white"
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                         {error && (
                             <p className="text-red-500 mt-2 text-sm">{error}</p>

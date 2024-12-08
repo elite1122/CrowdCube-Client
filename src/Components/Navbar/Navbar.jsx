@@ -1,11 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../../Pages/Loading/Loading";
 
 const Navbar = ({ isDarkMode, handleToggleTheme }) => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut, loading } = useContext(AuthContext);
 
-    
+    if (loading) {
+        return <Loading></Loading>;
+    }
 
     return (
         <div className={`shadow-md sticky top-0 z-50 transition-colors duration-300 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>

@@ -20,15 +20,16 @@ const Login = () => {
         const password = form.password.value;
 
         userLogin(email, password)
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
+            .then(() => {
                 form.reset();
                 toast.success("Login Successful");
-                navigate(location?.state?.from || "/");
+                // Navigate to the intended route or default to home
+                const redirectTo = location.state?.from?.pathname || "/";
+                navigate(redirectTo, { replace: true });
             })
-            .catch(() => {
-                toast.error("Your email or password is not correct");
+            .catch((error) => {
+                // Display the actual error message
+                toast.error(error.message);
             });
     };
 
