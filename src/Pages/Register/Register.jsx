@@ -39,7 +39,7 @@ const Register = () => {
         const email = form.get("email");
         const photo = form.get("photo");
         const password = form.get("password");
-        console.log({email,password,photo,name});
+        // console.log({email,password,photo,name});
 
         // Validate password
         const passwordError = validatePassword(password);

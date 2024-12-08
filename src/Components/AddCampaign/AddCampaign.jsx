@@ -21,7 +21,7 @@ const AddCampaign = () => {
         const photo = e.target.photo.value; 
 
         const newCampaign = { campaignTitle, campaignType, description, minimumDonationAmount, deadline, email, name, photo }
-        console.log(newCampaign);
+        // console.log(newCampaign);
 
         // send data to the server and database
         fetch('http://localhost:5000/campaigns', {
@@ -34,7 +34,7 @@ const AddCampaign = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    console.log('successfully added');
+                    // console.log('successfully added');
                     Swal.fire({
                         title: 'Success!',
                         text: 'Campaign added successfully',
