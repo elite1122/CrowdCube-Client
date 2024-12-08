@@ -11,7 +11,7 @@ const MyDonations = () => {
     useEffect(() => {
         if (user) {
             // Fetch donations by user email
-            fetch(`http://localhost:5000/myDonations?email=${user.email}`)
+            fetch(`https://crowdcube-server-kappa.vercel.app/myDonations?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setDonations(data);

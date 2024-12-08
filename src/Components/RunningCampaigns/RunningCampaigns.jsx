@@ -9,7 +9,7 @@ const RunningCampaigns = () => {
 
     useEffect(() => {
         // Fetch running campaigns (limited to 6 by the backend)
-        fetch('http://localhost:5000/runningCampaigns')
+        fetch('https://crowdcube-server-kappa.vercel.app/runningCampaigns')
             .then((res) => res.json())
             .then((data) => setCampaigns(data))
             .catch((err) => console.error('Error fetching campaigns:', err));

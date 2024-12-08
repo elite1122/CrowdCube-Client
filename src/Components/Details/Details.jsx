@@ -13,7 +13,7 @@ const Details = () => {
 
     useEffect(() => {
         // Fetch campaign details by ID
-        fetch(`http://localhost:5000/campaigns/${id}`)
+        fetch(`https://crowdcube-server-kappa.vercel.app/campaigns/${id}`)
             .then((res) => res.json())
             .then((data) => setCampaign(data))
             .catch((err) => console.error('Error fetching campaign:', err));
@@ -60,7 +60,7 @@ const Details = () => {
         };
 
         // Save donation data to the database
-        fetch('http://localhost:5000/donations', {
+        fetch('https://crowdcube-server-kappa.vercel.app/donations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

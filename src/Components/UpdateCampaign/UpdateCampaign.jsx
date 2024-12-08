@@ -34,7 +34,7 @@ const UpdateCampaign = () => {
         e.preventDefault();
 
         // Send updated data to the server
-        fetch(`http://localhost:5000/campaigns/${_id}`, {
+        fetch(`https://crowdcube-server-kappa.vercel.app/campaigns/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -9,7 +9,7 @@ const MyCampaign = () => {
     const [myCampaigns, setMyCampaigns] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myCampaign?email=${user.email}`)
+        fetch(`https://crowdcube-server-kappa.vercel.app/myCampaign?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => setMyCampaigns(data))
             .catch((error) => console.error('Error fetching user campaigns:', error));
@@ -29,7 +29,7 @@ const MyCampaign = () => {
             cancelButtonText: 'Cancel',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/campaigns/${id}`, {
+                fetch(`https://crowdcube-server-kappa.vercel.app/campaigns/${id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())

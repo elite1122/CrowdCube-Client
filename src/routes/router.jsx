@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: "/campaigns",
                 element: <Campaigns></Campaigns>,
-                loader: () => fetch('http://localhost:5000/campaigns')
+                loader: () => fetch('https://crowdcube-server-kappa.vercel.app/campaigns')
             },
             {
                 path: "/addCampaign",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: "/updateCampaign/:id",
                 element: <PrivateRoute><UpdateCampaign></UpdateCampaign></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+                loader: ({params}) => fetch(`https://crowdcube-server-kappa.vercel.app/campaigns/${params.id}`)
             },
             {
                 path: "/myDonations",
