@@ -55,23 +55,23 @@ const AddCampaign = () => {
                     Bring Your Vision to Life by Connecting with Supporters Worldwide
                 </p>
             </div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <div className="card w-full shrink-0 shadow-2xl">
                 <form onSubmit={handleAddCampaign} className="card-body">
                     {/* form first row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Campaign Title</span>
+                                <span className="">Campaign Title</span>
                             </label>
-                            <input type="text" name='campaignTitle' placeholder="Campaign Title" className="input input-bordered" required />
+                            <input type="text" name='campaignTitle' placeholder="Campaign Title" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Campaign Type</span>
+                                <span className="">Campaign Type</span>
                             </label>
                             <select
                                 name="campaignType"
-                                className="select select-bordered"
+                                className="select select-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 value={campaignType}
                                 onChange={(e) => setCampaignType(e.target.value)}
                                 required
@@ -92,45 +92,45 @@ const AddCampaign = () => {
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Description</span>
+                                <span className="">Description</span>
                             </label>
-                            <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
+                            <input type="text" name='description' placeholder="Description" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Minimum donation amount</span>
+                                <span className="">Minimum donation amount</span>
                             </label>
-                            <input type="number" name='minimumDonationAmount' placeholder="Minimum donation amount" className="input input-bordered" required />
+                            <input type="number" name='minimumDonationAmount' placeholder="Minimum donation amount" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
                         </div>
                     </div>
                     {/* form third row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Deadline</span>
+                                <span className="">Deadline</span>
                             </label>
-                            <input type="date" name='deadline' placeholder="Deadline" className="input input-bordered" required />
+                            <input type="date" name='deadline' placeholder="Deadline" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">User Email</span>
+                                <span className="">User Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="User Email" className="input input-bordered" value={user.email} readOnly required />
+                            <input type="email" name='email' placeholder="User Email" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400" value={user.email} readOnly required />
                         </div>
                     </div>
 
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">User Name</span>
+                                <span className="">User Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="User Name" className="input input-bordered" value={user.displayName} readOnly required />
+                            <input type="text" name='name' placeholder="User Name" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400" value={user.displayName} readOnly required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="">Photo URL</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo url" className="input input-bordered" required />
+                            <input type="text" name='photo' placeholder="Photo url" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
                         </div>
                     </div>
                     <div className="form-control mt-6">

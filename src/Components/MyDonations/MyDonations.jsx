@@ -29,7 +29,7 @@ const MyDonations = () => {
     }
 
     if (donations.length === 0) {
-        return <p className="text-center py-10">No donations found!</p>;
+        return <p className="text-center py-10 min-h-screen">No donations found!</p>;
     }
 
     return (
@@ -49,19 +49,19 @@ const MyDonations = () => {
                         <h2 className="text-xl font-semibold mb-2">
                             {donation.campaignTitle}
                         </h2>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 dark:text-gray-400">
                             <strong>Campaign Type: </strong>{' '}
                             {donation.campaignType}
                         </p>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 dark:text-gray-400">
                             <strong>Description: </strong>{' '}
                             {donation.description}
                         </p>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 dark:text-gray-400">
                             <strong>Donated Amount: </strong>{' '}
                             {donation.minimumDonationAmount} TK
                         </p>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 dark:text-gray-400">
                             <strong>Deadline: </strong>{' '}
                             {donation.deadline
                                 ? new Date(donation.deadline).toLocaleDateString()

@@ -45,19 +45,19 @@ const Login = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center">
-            <div className="card bg-base-100 w-full max-w-lg shadow-2xl p-10">
+            <div className="card w-full max-w-lg shadow-2xl p-10">
                 <h2 className="text-3xl font-bold text-center">Login Your Account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     {/* Email Input */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="">Email</span>
                         </label>
                         <input
                             name="email"
                             type="email"
                             placeholder="Enter your email"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -67,25 +67,25 @@ const Login = () => {
                     {/* Password Input */}
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="">Password</span>
                         </label>
                         <input
                             name="password"
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter your password"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             required
                         />
                         <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="btn btn-xs absolute right-2 top-12"
+                            className="btn btn-xs absolute right-2 top-12 bg-white text-black dark:bg-gray-800 dark:text-white"
                         >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                         <label className="label">
                             <p
-                                className="label-text-alt link link-hover"
+                                className="label-text-alt link link-hover text-black dark:text-white"
                             >
                                 Forgot password?
                             </p>

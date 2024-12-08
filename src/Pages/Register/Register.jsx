@@ -91,61 +91,61 @@ const Register = () => {
 
     return (
         <div className="min-h-screen flex justify-center items-center">
-            <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl p-10">
+            <div className="card w-full max-w-lg shrink-0 shadow-2xl p-10">
                 <h2 className="text-3xl font-bold text-center">Register Your Account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="">Name</span>
                         </label>
                         <input
                             type="text"
                             placeholder="name"
                             name="name"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             required
                         />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="">Email</span>
                         </label>
                         <input
                             type="email"
                             placeholder="email"
                             name="email"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             required
                         />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Photo URL</span>
+                            <span className="">Photo URL</span>
                         </label>
                         <input
                             type="text"
                             placeholder="photo url"
                             name="photo"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             required
                         />
                     </div>
 
                     <div className="form-control relative">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="">Password</span>
                         </label>
                         <input
                             type={showPassword ? 'text' : 'password'}
                             placeholder="password"
                             name="password"
-                            className="input input-bordered"
+                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                             required />
                         <button
                             onClick={handlePasswordVisibilityToggle}
-                            className="btn btn-xs absolute right-2 top-12">
+                            className="btn btn-xs absolute right-2 top-12 bg-white text-black dark:bg-gray-800 dark:text-white">
                             {
                                 showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                             }

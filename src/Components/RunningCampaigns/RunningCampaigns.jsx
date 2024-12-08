@@ -37,8 +37,8 @@ const RunningCampaigns = () => {
                                 />
                             </figure>
                             <div className="card-body">
-                                <h2 className="card-title">{campaign.campaignTitle}</h2>
-                                <p className="text-sm">{campaign.description.slice(0, 100)}...</p>
+                                <h2 className="card-title dark:text-gray-300">{campaign.campaignTitle}</h2>
+                                <p className="text-sm dark:text-gray-400">{campaign.description.slice(0, 100)}...</p>
                                 <div className="flex justify-between items-center mt-4">
                                     <p className="text-primary font-semibold">
                                         Min Donation: {campaign.minimumDonationAmount}TK
