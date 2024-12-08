@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
@@ -10,9 +10,11 @@ const Navbar = () => {
             <div className="flex justify-between w-11/12 mx-auto items-center py-3 flex-wrap">
                 {/* Logo */}
                 <div>
-                    <a className="btn btn-ghost text-xl text-green-400">
-                        Crowd<span className="text-orange-400 text-xl">Cube</span>
-                    </a>
+                    <Link to={'/'}>
+                        <button className="btn btn-ghost text-xl text-green-400">
+                            Crowd<span className="text-orange-400 text-xl">Cube</span>
+                        </button>
+                    </Link>
                 </div>
 
                 {/* Navigation Links */}
@@ -63,7 +65,7 @@ const Navbar = () => {
                     </NavLink>
                 </div>
 
-                {/* User Profile & Logout */}
+                {/* User Profile & Conditional Buttons */}
                 <div className="flex items-center space-x-4">
                     {user?.photoURL ? (
                         <div className="relative group flex items-center gap-2">
@@ -92,14 +94,28 @@ const Navbar = () => {
                             </button>
                         </div>
                     ) : (
-                        <NavLink
-                            to="/login"
-                            className={({ isActive }) =>
-                                isActive ? "hidden lg:flex btn btn-primary text-white" : "hidden lg:flex btn btn-outline text-gray-700"
-                            }
-                        >
-                            Login
-                        </NavLink>
+                        <div className="flex gap-2">
+                            <NavLink
+                                to="/login"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? "hidden lg:flex btn btn-primary text-white"
+                                        : "hidden lg:flex btn btn-outline text-gray-700"
+                                }
+                            >
+                                Login
+                            </NavLink>
+                            <NavLink
+                                to="/register"
+                                className={({ isActive }) =>
+                                    isActive
+                                        ? "hidden lg:flex btn btn-primary text-white"
+                                        : "hidden lg:flex btn btn-outline text-gray-700"
+                                }
+                            >
+                                Register
+                            </NavLink>
+                        </div>
                     )}
                 </div>
 
@@ -174,22 +190,34 @@ const Navbar = () => {
                                 My Donations
                             </NavLink>
                         </li>
-                        {user ? (
+                        {!user ? (
+                            <>
+                                <li>
+                                    <NavLink
+                                        to="/login"
+                                        className={({ isActive }) =>
+                                            isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                                        }
+                                    >
+                                        Login
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to="/register"
+                                        className={({ isActive }) =>
+                                            isActive ? "text-blue-500 font-bold" : "text-gray-700"
+                                        }
+                                    >
+                                        Register
+                                    </NavLink>
+                                </li>
+                            </>
+                        ) : (
                             <li>
                                 <button onClick={logOut} className="btn btn-sm btn-outline text-gray-700">
                                     Logout
                                 </button>
-                            </li>
-                        ) : (
-                            <li>
-                                <NavLink
-                                    to="/login"
-                                    className={({ isActive }) =>
-                                        isActive ? "text-blue-500 font-bold" : "text-gray-700"
-                                    }
-                                >
-                                    Login
-                                </NavLink>
                             </li>
                         )}
                     </ul>
