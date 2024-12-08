@@ -1,10 +1,19 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loading from "../../Pages/Loading/Loading";
 
 const Campaigns = () => {
     const campaignsData = useLoaderData(); // Load campaigns data from loader
     const [campaigns, setCampaigns] = useState(campaignsData); // State to manage campaigns
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (campaignsData) {
+            setCampaigns(campaignsData);
+            setLoading(false); // Set loading to false after data is loaded
+        }
+    }, [campaignsData]);
 
     // Function to sort campaigns in ascending order
     const handleSort = () => {
@@ -13,6 +22,10 @@ const Campaigns = () => {
         );
         setCampaigns(sortedCampaigns);
     };
+
+    if(loading){
+        return <Loading></Loading>;
+    }
 
     return (
         <div className="container mx-auto p-6">
