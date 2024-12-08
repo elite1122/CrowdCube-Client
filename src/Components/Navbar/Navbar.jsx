@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Navbar = ({ isDarkMode, handleToggleTheme }) => {
     const { user, logOut } = useContext(AuthContext);
