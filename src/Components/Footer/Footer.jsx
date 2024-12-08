@@ -9,7 +9,7 @@ import {
 const Footer = () => {
     return (
         <div>
-            <footer className="bg-black">
+            <footer className="">
                 <div className="flex justify-center pb-12">
                     <img src="/assets/logo-footer.png" alt="" srcSet="" />
                 </div>
@@ -17,9 +17,9 @@ const Footer = () => {
                     {/* Left */}
                     <div className="pb-3">
                         <div className="flex flex-row gap-2 items-center pb-3">
-                            <h2 className="text-white text-opacity-90 font-bold text-lg">Contact Information</h2>
+                            <h2 className="text-opacity-90 font-bold text-lg">Contact Information</h2>
                         </div>
-                        <div className="text-white space-y-2 text-opacity-[70%]">
+                        <div className="space-y-2 text-opacity-[70%]">
                             <p>Location: Jhenaidah-7300, BD</p>
                             <p>Phone: +8801755926275</p>
                             <p>Email: rasheduzzamanelite@gmail.com</p>
@@ -43,8 +43,8 @@ const Footer = () => {
                     </div>
                     {/* Center */}
                     <div className="pb-3">
-                        <h2 className="text-white text-opacity-90 font-bold text-lg pb-3">Quick Links</h2>
-                        <div className="text-white text-opacity-70 flex flex-col space-y-2">
+                        <h2 className="text-opacity-90 font-bold text-lg pb-3">Quick Links</h2>
+                        <div className="text-opacity-70 flex flex-col space-y-2">
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Services</a></li>
                             <li><a href="#">About</a></li>
@@ -54,8 +54,8 @@ const Footer = () => {
                     {/* Right */}
                     <div className="pt-3">
                         <div className="pb-3">
-                            <h2 className="text-white text-opacity-90 font-bold text-lg pb-3">Subscribe</h2>
-                            <p className="text-white space-y-2 text-opacity-70">
+                            <h2 className="text-opacity-90 font-bold text-lg pb-3">Subscribe</h2>
+                            <p className="space-y-2 text-opacity-70">
                                 Subscribe to our newsletter for the latest updates.
                             </p>
                         </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="border border-gray-300 px-4 py-2 rounded-l-lg focus:outline-none w-full"
+                                className="border border-gray-300 px-4 py-2 rounded-l-lg focus:outline-none w-full dark:bg-gray-800 dark:text-white"
                                 style={{ borderRight: 'none' }}
                             />
                             <button
@@ -75,9 +75,9 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="border-b border-gray-300 border-opacity-50 mb-5"></div>
+                <div className="border-b-2 mb-5"></div>
                 <div className="w-full mx-auto flex justify-center items-center pb-5">
-                    <p className="text-gray-400 text-center">Copyright © {new Date().getFullYear()} - All rights reserved by Rasheduzzaman Elite</p>
+                    <p className="text-center">Copyright © {new Date().getFullYear()} - All rights reserved by Rasheduzzaman Elite</p>
                 </div>
 
             </footer>

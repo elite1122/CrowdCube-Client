@@ -47,7 +47,7 @@ const Root = () => {
                 <Navbar isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
             </nav>
             <Outlet />
-            <Footer />
+            <Footer isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
         </div>
     );
 };
