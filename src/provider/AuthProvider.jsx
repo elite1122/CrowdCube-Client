@@ -31,10 +31,6 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     };
 
-    const updateUserProfile = (updatedData) => {
-        // setLoading(true);
-        return updateProfile(auth.currentUser, updatedData);
-      };
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -52,7 +48,6 @@ const AuthProvider = ({ children }) => {
         logOut,
         userLogin,
         loading,
-        updateUserProfile,
         setRefetch,
         signInWithGoogle,
     };
