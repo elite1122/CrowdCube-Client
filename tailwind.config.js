@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: "class",
   content: [
     "./index.html",
@@ -11,5 +11,5 @@ export default {
   plugins: [
     require('daisyui'),
   ],
-}
-
+  safelist: ['sticky', 'top-0', 'z-50'],
+};

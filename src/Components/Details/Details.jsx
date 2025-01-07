@@ -37,7 +37,7 @@ const Details = () => {
         const currentDate = new Date();
         const deadlineDate = new Date(campaign.deadline);
 
-        if (currentDate >= deadlineDate) {
+        if (currentDate > deadlineDate) {
             Swal.fire({
                 title: 'Campaign Closed',
                 text: 'The deadline for this campaign has passed. Donations are no longer accepted.',

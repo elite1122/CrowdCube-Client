@@ -74,19 +74,19 @@ const Login = () => {
                             name="password"
                             type={showPassword ? "text" : "password"}
                             placeholder="Enter your password"
-                            className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                            className="input input-bordered bg-white text-black"
                             required
                         />
                         <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="btn btn-xs absolute right-2 top-12 bg-white text-black dark:bg-gray-800 dark:text-white"
+                            className="btn btn-xs absolute right-2 top-12 bg-white text-black"
                         >
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                         <label className="label">
                             <p
-                                className="label-text-alt link link-hover text-black dark:text-white"
+                                className="label-text-alt link link-hover text-black"
                             >
                                 Forgot password?
                             </p>

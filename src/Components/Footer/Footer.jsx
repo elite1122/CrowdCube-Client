@@ -5,6 +5,8 @@ import {
     faYoutube,
     faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
+import logo from '../../assets/crowdcube.png'
 
 const Footer = () => {
     return (
@@ -13,7 +15,7 @@ const Footer = () => {
                 <div className="flex justify-center pb-12">
                     <img src="/assets/logo-footer.png" alt="" srcSet="" />
                 </div>
-                <div className="w-4/5 mx-auto flex flex-col lg:flex-row justify-between pb-12">
+                <div className="mx-auto flex flex-col lg:flex-row justify-between pb-12">
                     {/* Left */}
                     <div className="pb-3">
                         <div className="flex flex-row gap-2 items-center pb-3">
@@ -26,32 +28,40 @@ const Footer = () => {
                             <p>Openings Hours: 9.00 AM to 5.00 PM</p>
 
                             <div className="flex gap-6 py-3">
-                                <a href="#" aria-label="Facebook">
+                                <a href="https://www.facebook.com/elite1122" target="_blank" aria-label="Facebook">
                                     <FontAwesomeIcon icon={faFacebook} className="text-3xl" />
                                 </a>
-                                <a href="#" aria-label="Twitter">
+                                <a href="https://x.com/rz_elite_" target="_blank" aria-label="Twitter">
                                     <FontAwesomeIcon icon={faTwitter} className="text-3xl" />
                                 </a>
-                                <a href="#" aria-label="YouTube">
+                                <a href="https://www.youtube.com/@learnwithelite5162" target="_blank" aria-label="YouTube">
                                     <FontAwesomeIcon icon={faYoutube} className="text-3xl" />
                                 </a>
-                                <a href="#" aria-label="Instagram">
+                                <a href="https://www.instagram.com/_rz.elite_/" target="_blank" aria-label="Instagram">
                                     <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
                                 </a>
                             </div>
                         </div>
                     </div>
                     {/* Center */}
+                    <div className="flex justify-center">
+                        <img 
+                        src={logo} 
+                        className="object-cover w-64 h-64" />
+                    </div>
+                    {/* Right */}
                     <div className="pb-3">
                         <h2 className="text-opacity-90 font-bold text-lg pb-3">Quick Links</h2>
                         <div className="text-opacity-70 flex flex-col space-y-2">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/campaigns'>All Campaigns</Link></li>
+                            <li><Link to='/addCampaign'>Add Campaign</Link></li>
+                            <li><Link to='/stories'>Contributor Stories</Link></li>
+                            <li><Link to='/about'>About Us</Link></li>
+                            <li><Link to='/faq'>FAQ</Link></li>
                         </div>
                     </div>
-                    {/* Right */}
+                    {/* Right
                     <div className="pt-3">
                         <div className="pb-3">
                             <h2 className="text-opacity-90 font-bold text-lg pb-3">Subscribe</h2>
@@ -73,7 +83,7 @@ const Footer = () => {
                                 Subscribe
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="border-b-2 mb-5"></div>
                 <div className="w-full mx-auto flex justify-center items-center pb-5">

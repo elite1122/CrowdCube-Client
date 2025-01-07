@@ -73,18 +73,18 @@ const UpdateCampaign = () => {
     return (
         <div className="lg:w-3/4 mx-auto min-h-screen">
             <div className="text-center p-10">
-                <h1 className="text-3xl font-bold">Update Campaign: {formData.campaignTitle}</h1>
+                <h1 className="text-2xl md:text-4xl font-bold">Update Campaign: {formData.campaignTitle}</h1>
                 <p className="py-6">
                     Bring Your Vision to Life by Connecting with Supporters Worldwide
                 </p>
             </div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <div className="card w-full shrink-0 shadow-2xl">
                 <form onSubmit={handleUpdateCampaign} className="card-body">
                     {/* Form Fields */}
                     <div className="flex flex-col lg:flex-row gap-5">
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Campaign Title</span>
+                                <span className="">Campaign Title</span>
                             </label>
                             <input
                                 type="text"
@@ -92,17 +92,17 @@ const UpdateCampaign = () => {
                                 value={formData.campaignTitle}
                                 onChange={handleChange}
                                 placeholder="Campaign Title"
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Campaign Type</span>
+                                <span className="">Campaign Type</span>
                             </label>
                             <select
                                 name="campaignType"
-                                className="select select-bordered"
+                                className="select select-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 value={formData.campaignType}
                                 onChange={handleChange}
                                 required
@@ -121,7 +121,7 @@ const UpdateCampaign = () => {
                     <div className="flex flex-col lg:flex-row gap-5">
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Description</span>
+                                <span className="">Description</span>
                             </label>
                             <input
                                 type="text"
@@ -129,13 +129,13 @@ const UpdateCampaign = () => {
                                 value={formData.description}
                                 onChange={handleChange}
                                 placeholder="Description"
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Minimum donation amount</span>
+                                <span className="">Minimum donation amount</span>
                             </label>
                             <input
                                 type="number"
@@ -143,7 +143,7 @@ const UpdateCampaign = () => {
                                 value={formData.minimumDonationAmount}
                                 onChange={handleChange}
                                 placeholder="Minimum donation amount"
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
@@ -152,7 +152,7 @@ const UpdateCampaign = () => {
                     <div className="flex flex-col lg:flex-row gap-5">
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Deadline</span>
+                                <span className="">Deadline</span>
                             </label>
                             <input
                                 type="date"
@@ -160,20 +160,20 @@ const UpdateCampaign = () => {
                                 value={formData.deadline}
                                 onChange={handleChange}
                                 placeholder="Deadline"
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">User Email</span>
+                                <span className="">User Email</span>
                             </label>
                             <input
                                 type="email"
                                 name="email"
                                 value={user.email}
                                 readOnly
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
@@ -182,28 +182,28 @@ const UpdateCampaign = () => {
                     <div className="flex flex-col lg:flex-row gap-5">
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">User Name</span>
+                                <span className="">User Name</span>
                             </label>
                             <input
                                 type="text"
                                 name="name"
                                 value={user.displayName}
                                 readOnly
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="">Photo URL</span>
                             </label>
                             <input
-                                type="text"
+                                type="url"
                                 name="photo"
                                 value={formData.photo}
                                 onChange={handleChange}
                                 placeholder="Photo URL"
-                                className="input input-bordered"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
                                 required
                             />
                         </div>

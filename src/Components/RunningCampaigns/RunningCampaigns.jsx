@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
-
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 const RunningCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
@@ -9,54 +8,57 @@ const RunningCampaigns = () => {
 
     useEffect(() => {
         // Fetch running campaigns (limited to 6 by the backend)
-        fetch('https://crowdcube-server-kappa.vercel.app/runningCampaigns')
+        fetch("https://crowdcube-server-kappa.vercel.app/runningCampaigns")
             .then((res) => res.json())
             .then((data) => setCampaigns(data))
-            .catch((err) => console.error('Error fetching campaigns:', err));
+            .catch((err) => console.error("Error fetching campaigns:", err));
     }, []);
 
     return (
-        <div className="container mx-auto py-10 w-11/12">
-            <h1 className="text-4xl font-bold text-center mb-6">Running Campaigns</h1>
+        <div className="container mx-auto py-10">
+            <h1 className="text-2xl md:text-4xl font-bold text-center mb-10">Running Campaigns</h1>
             {campaigns.length === 0 ? (
                 <p className="text-center">No running campaigns found!</p>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {campaigns.map((campaign) => (
                         <div
                             key={campaign._id}
-                            className="card shadow-xl pt-5"
-                            data-tooltip-id={`tooltip-${campaign._id}`} // Unique ID for each tooltip
-                            data-tooltip-content={`Campaign created by ${campaign.name}. Min Donation: ${campaign.minimumDonationAmount}TK`}
+                            className="border border-gray-300 rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow bg-white dark:bg-gray-800 flex flex-col h-full"
+                            data-tooltip-id={`tooltip-${campaign._id}`}
+                            data-tooltip-content={`Created by ${campaign.name}, Min Donation: ${campaign.minimumDonationAmount} TK`}
                         >
-                            <figure className='h-64 px-6'>
-                                <img
-                                    src={campaign.photo}
-                                    alt={campaign.campaignTitle}
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title dark:text-gray-300">{campaign.campaignTitle}</h2>
-                                <p className="text-sm dark:text-gray-400">{campaign.description.slice(0, 100)}...</p>
-                                <div className="flex justify-between items-center mt-4">
-                                    <p className="text-primary font-semibold">
-                                        Min Donation: {campaign.minimumDonationAmount}TK
-                                    </p>
-                                    <p className="text-secondary">
-                                        Deadline: {new Date(campaign.deadline).toLocaleDateString()}
-                                    </p>
-                                </div>
+                            <img
+                                src={campaign.photo}
+                                alt={campaign.campaignTitle}
+                                className="rounded-lg mb-4 w-full h-48 object-cover"
+                            />
+                            <h3 className="text-lg md:text-xl font-semibold mb-2">{campaign.campaignTitle}</h3>
+
+                            <p className="text-gray-700 dark:text-gray-400">
+                                <strong>Type:</strong> {campaign.campaignType}
+                            </p>
+                            <p className="text-gray-700 dark:text-gray-400">
+                                <strong>Min Donation:</strong>{" "}
+                                {campaign.minimumDonationAmount} TK
+                            </p>
+                            <p className="text-gray-700 dark:text-gray-400">
+                                <strong>Deadline:</strong>{" "}
+                                {new Date(campaign.deadline).toLocaleDateString()}
+                            </p>
+                            {/* Spacer pushes button to the bottom */}
+                            <div className="mt-auto">
                                 <button
-                                    className="btn btn-primary w-full mt-4"
-                                    onClick={() => navigate(`/campaign/${campaign._id}`)} // Correct path
+                                    className="mt-4 w-full btn btn-primary"
+                                    onClick={() => navigate(`/campaign/${campaign._id}`)}
                                 >
                                     See More
                                 </button>
                             </div>
-                            <Tooltip id={`tooltip-${campaign._id}`} place="top" effect="solid" />
                         </div>
                     ))}
+                    {/* Render the Tooltip once globally */}
+                    <Tooltip place="top" effect="solid" />
                 </div>
             )}
         </div>

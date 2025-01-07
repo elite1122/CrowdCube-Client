@@ -18,7 +18,7 @@ const AddCampaign = () => {
         const deadline = e.target.deadline.value;
         const email = e.target.email.value;
         const name = e.target.name.value;
-        const photo = e.target.photo.value; 
+        const photo = e.target.photo.value;
 
         const newCampaign = { campaignTitle, campaignType, description, minimumDonationAmount, deadline, email, name, photo }
         // console.log(newCampaign);
@@ -48,9 +48,9 @@ const AddCampaign = () => {
     }
 
     return (
-        <div className='lg:w-3/4 mx-auto'>
+        <div className='mx-auto'>
             <div className="text-center p-10">
-                <h1 className="text-5xl font-bold">Add Campaign!</h1>
+                <h1 className="text-2xl md:text-4xl font-bold">Add Campaign!</h1>
                 <p className="py-6">
                     Bring Your Vision to Life by Connecting with Supporters Worldwide
                 </p>
@@ -63,7 +63,11 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="">Campaign Title</span>
                             </label>
-                            <input type="text" name='campaignTitle' placeholder="Campaign Title" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
+                            <input type="text"
+                                name='campaignTitle'
+                                placeholder="Campaign Title"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                                required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
@@ -94,13 +98,21 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="">Description</span>
                             </label>
-                            <input type="text" name='description' placeholder="Description" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
+                            <input type="text"
+                                name='description'
+                                placeholder="Description"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                                required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="">Minimum donation amount</span>
                             </label>
-                            <input type="number" name='minimumDonationAmount' placeholder="Minimum donation amount" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
+                            <input type="number"
+                                name='minimumDonationAmount'
+                                placeholder="Minimum donation amount"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                                required />
                         </div>
                     </div>
                     {/* form third row */}
@@ -109,13 +121,23 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="">Deadline</span>
                             </label>
-                            <input type="date" name='deadline' placeholder="Deadline" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
+                            <input type="date"
+                                name='deadline'
+                                placeholder="Deadline"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                                required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="">User Email</span>
                             </label>
-                            <input type="email" name='email' placeholder="User Email" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400" value={user.email} readOnly required />
+                            <input type="email"
+                                name='email'
+                                placeholder="User Email"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400"
+                                value={user.email}
+                                readOnly
+                                required />
                         </div>
                     </div>
 
@@ -124,13 +146,23 @@ const AddCampaign = () => {
                             <label className="label">
                                 <span className="">User Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="User Name" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400" value={user.displayName} readOnly required />
+                            <input type="text"
+                                name='name'
+                                placeholder="User Name"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-gray-400"
+                                value={user.displayName}
+                                readOnly
+                                required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="">Photo URL</span>
                             </label>
-                            <input type="text" name='photo' placeholder="Photo url" className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white" required />
+                            <input type="text"
+                                name='photo'
+                                placeholder="Photo url"
+                                className="input input-bordered bg-white text-black dark:bg-gray-800 dark:text-white"
+                                required />
                         </div>
                     </div>
                     <div className="form-control mt-6">

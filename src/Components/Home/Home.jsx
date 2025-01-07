@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Zoom } from 'react-awesome-reveal';
 import Banner from '../Banner/Banner';
 import RunningCampaigns from '../RunningCampaigns/RunningCampaigns';
 import ContributorStories from '../ContributorStories/ContributorStories';
 import FrequentlyAskedQuestion from '../FrequentlyAskedQuestion/FrequentlyAskedQuestion';
+import AboutUs from '../AboutUs/AboutUs';
 
 const Home = () => {
     
@@ -19,6 +20,9 @@ const Home = () => {
             </section>
             <section>
                 <ContributorStories />
+            </section>
+            <section>
+                <AboutUs></AboutUs>
             </section>
             <section>
                 <FrequentlyAskedQuestion />

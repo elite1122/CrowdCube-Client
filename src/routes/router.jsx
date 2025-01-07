@@ -12,6 +12,9 @@ import Register from '../Pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import UpdateCampaign from '../Components/UpdateCampaign/UpdateCampaign';
 import Details from '../Components/Details/Details';
+import ContributorStories from '../Components/ContributorStories/ContributorStories';
+import AboutUs from '../Components/AboutUs/AboutUs';
+import FrequentlyAskedQuestion from '../Components/FrequentlyAskedQuestion/FrequentlyAskedQuestion';
 
 const router = createBrowserRouter([
 
@@ -46,7 +49,18 @@ const router = createBrowserRouter([
                 path: "/myDonations",
                 element: <PrivateRoute><MyDonations></MyDonations></PrivateRoute>,
             },
-            
+            {
+                path: "/stories",
+                element: <ContributorStories></ContributorStories>,
+            },
+            {
+                path: "/about",
+                element: <AboutUs></AboutUs>,
+            },
+            {
+                path: "/faq",
+                element: <FrequentlyAskedQuestion></FrequentlyAskedQuestion>,
+            },
             {
                 path: "/login",
                 element: <Login></Login>,

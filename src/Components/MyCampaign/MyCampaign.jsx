@@ -5,17 +5,24 @@ import { Link } from 'react-router-dom';
 import Loading from '../../Pages/Loading/Loading';
 
 const MyCampaign = () => {
-    const { user,loading } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [myCampaigns, setMyCampaigns] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`https://crowdcube-server-kappa.vercel.app/myCampaign?email=${user.email}`)
             .then((res) => res.json())
-            .then((data) => setMyCampaigns(data))
-            .catch((error) => console.error('Error fetching user campaigns:', error));
+            .then((data) => {
+                setMyCampaigns(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('Error fetching user campaigns:', error);
+                setLoading(false);
+            });
     }, [user.email]);
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>;
     }
 
@@ -43,26 +50,32 @@ const MyCampaign = () => {
         });
     };
 
+    if (myCampaigns.length === 0) {
+        return <p className="text-center py-10 min-h-screen">No campaigns found!</p>;
+    }
+
     return (
-        <div className="container mx-auto p-6 min-h-screen">
-            <h1 className="text-4xl font-bold text-center mb-6">My Campaigns</h1>
+        <div className="container mx-auto min-h-screen py-10">
+            <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">My Campaigns</h1>
             <div className="overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-300">
                     <thead>
                         <tr>
-                            <th className="border p-2">Title</th>
-                            <th className="border p-2">Type</th>
-                            <th className="border p-2">Min Donation</th>
-                            <th className="border p-2">Actions</th>
+                            <th className="px-4 py-2 border">#</th>
+                            <th className="px-4 py-2 border">Title</th>
+                            <th className="px-4 py-2 border">Type</th>
+                            <th className="px-4 py-2 border">Min Donation</th>
+                            <th className="px-4 py-2 border">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {myCampaigns.map((campaign) => (
+                        {myCampaigns.map((campaign, index) => (
                             <tr key={campaign._id} className="text-center hover:bg-gray-100 dark:hover:bg-black">
-                                <td className="border p-2">{campaign.campaignTitle}</td>
-                                <td className="border p-2">{campaign.campaignType}</td>
-                                <td className="border p-2">{campaign.minimumDonationAmount}TK</td>
-                                <td className="border p-2 flex gap-2 justify-center ">
+                                <td className="px-4 py-2 border">{index + 1}</td>
+                                <td className="px-4 py-2 border">{campaign.campaignTitle}</td>
+                                <td className="px-4 py-2 border">{campaign.campaignType}</td>
+                                <td className="px-4 py-2 border">{campaign.minimumDonationAmount}TK</td>
+                                <td className="px-4 py-2 border space-y-3">
                                     <Link to={`/updateCampaign/${campaign._id}`}>
                                         <button className="btn btn-sm btn-warning mr-2">Update</button>
                                     </Link>

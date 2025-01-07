@@ -31,23 +31,25 @@ const Root = () => {
     };
 
     return (
-        <div className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"} min-h-screen`}>
-            <ToastContainer
-                position="top-center"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-            />
-            {/* Navbar */}
-            <nav className="py-6">
-                <Navbar isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
-            </nav>
-            <Outlet />
-            <Footer isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
+        <div className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+            <div className="max-w-[1440px] mx-auto w-11/12">
+                <ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                />
+                {/* Navbar */}
+                <nav className="sticky top-0 z-50 bg-white text-black dark:bg-gray-900 dark:text-white">
+                    <Navbar isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
+                </nav>
+                <Outlet />
+                <Footer isDarkMode={isDarkMode} handleToggleTheme={handleToggleTheme} />
+            </div>
         </div>
     );
 };
