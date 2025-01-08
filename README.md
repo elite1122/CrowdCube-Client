@@ -56,6 +56,28 @@ Crowdcube is a crowdfunding platform designed to support individuals, creative i
 - **See More:** Click “**See More**” on any campaign to see a card for a full view of the campaign.
 - **Create Campaign:** Log in to create a new crowdfunding campaign with the necessary details.
 
+## 🔗 Dependencies
+"@fortawesome/free-brands-svg-icons: ^6.7.1
+- @fortawesome/free-regular-svg-icons: ^6.7.1
+- @fortawesome/free-solid-svg-icons: ^6.7.1
+- @fortawesome/react-fontawesome: ^0.2.2
+- firebase: ^11.0.2
+- localforage: ^1.10.0
+- match-sorter: ^8.0.0
+- react: ^18.3.1
+- react-awesome-reveal: ^4.2.14
+- react-dom: ^18.3.1
+- react-icons: ^5.4.0,
+- react-router-dom: ^7.0.2,
+- react-simple-typewriter: ^5.0.1
+- react-toastify: ^10.0.6
+- react-tooltip: ^5.28.0
+- sort-by: ^1.2.0
+- sweetalert2: ^11.14.5
+
+## Installation
+- Run `npm install` to install project dependencies.
+
 
 ## 📣 Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check out the issues page if you want to contribute.
